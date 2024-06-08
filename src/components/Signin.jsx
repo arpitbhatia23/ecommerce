@@ -1,22 +1,26 @@
 import React from 'react';
-import {uselogin} from '../Auth/auth';
+import useAuth from '../Auth/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 function Signin() {
   const { register, handleSubmit } = useForm();
-  const {loading,  login,} = uselogin();
+  const {login} = useAuth();
   const loginHandler = async (user) => {
     try {
-      const session = await login(user);
+      const session= await login(user);
       console.log(session)
       if (session?.success === true) {
         toast.success(session?.message);
 
       }
+      if(session?.success===false){
+        toast.error(session?.message)
+      }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error);
     }
+    
   };
 
 

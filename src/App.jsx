@@ -1,17 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect,} from 'react'
 import './App.css'
 import Signin from './components/Signin'
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
+import useAuth from './Auth/auth'
+import Header from './components/header/Header'
 function App() {
-  const [count, setCount] = useState(0)
+  const{currentuser}=useAuth()
+  useEffect(()=>{
+    currentuser()
+    .then((userData) => {
+      if (userData) {
 
+        toast.success('wellcome to ecommerce');
+      }
+    })},[])
   return (
     <>
     <Toaster/>
     <Signin/>
-      
     </>
   )
 }
