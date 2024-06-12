@@ -3,7 +3,7 @@ import React from 'react'
 function Order() {
   return (
     <>
-      
+      <h1>order</h1>
     </>
   )
 }

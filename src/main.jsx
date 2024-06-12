@@ -9,7 +9,8 @@ import Singup from "./components/Singup.jsx"
 import Order from "./components/Order.jsx"
 import Admin from "./components/Admin.jsx"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-const router=createBrowserRouter({
+import Cart from './components/Cart.jsx'
+const router=createBrowserRouter([{
   path:"/",
   element:<App/>,
   children:[
@@ -37,10 +38,14 @@ const router=createBrowserRouter({
     {
       path:"/signup",
       element:<Singup/>
+    },
+    {
+      path:"/cart",
+      element:<Cart/>
     }
 
   ]
-})
+}])
     
   
 

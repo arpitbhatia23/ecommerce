@@ -4,6 +4,7 @@ import Signin from './components/Signin'
 import toast, { Toaster } from 'react-hot-toast'
 import useAuth from './Auth/auth'
 import Header from './components/header/Header'
+import { Outlet } from 'react-router-dom'
 function App() {
   const{currentuser}=useAuth()
   useEffect(()=>{
@@ -17,10 +18,11 @@ function App() {
   return (
     <>
     <Toaster/>
-    <Signin/>
+    {/* <Signin/>
 
 
-      <h1>hello</h1>
+      <h1>hello</h1> */}
+      <Outlet/>
 
     </>
   )
