@@ -11,6 +11,7 @@ function App() {
     <>
     <Toaster/>
     <Signin/>
+    <br /><hr />
       <h1>hello</h1>
     </>
   )
