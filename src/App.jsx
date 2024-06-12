@@ -18,14 +18,10 @@ function App() {
     <>
     <Toaster/>
     <Signin/>
-<<<<<<< HEAD
-    <br /><hr />
-=======
-<<<<<<< HEAD
-=======
->>>>>>> a4265c352b23ccdbe394b5e8f9814ea69f211997
+
+
       <h1>hello</h1>
->>>>>>> fe1ea9c2ed013f229f1c2576f1e847e1cc977282
+
     </>
   )
 }
