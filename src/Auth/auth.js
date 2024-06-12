@@ -2,15 +2,11 @@ import axios from "axios";
 import { useState } from "react";
  
 
- export const uselogin=()=>{
-const [data,setdata]=useState()
-const [loading,setloading]=useState(true)
-const [error,seterror]=useState(false)
-
+const useAuth=()=>{
+// login user
  const login =async(user)=>{
     try{
-        setloading(true)
-        seterror(false)
+        
     const response= await axios.post('/v1/users/login' , user,{
         headers:{
             'accept': 'application/json',
@@ -18,59 +14,66 @@ const [error,seterror]=useState(false)
         }
 
     })
-   setdata(response.data)
-setloading(false)
-
+    return (response.data)
+   
 }
  catch(error){
-   seterror(error.message)
+    if (error.response) {
+        return error.response.data;
+      }
+   return(error.message)
 
  }
 
 }
+
+// register user 
 const signup =async(user)=>{
     try{
-        setloading(true)
-        seterror(false)
+       
     const response= await axios.post('/v1/users/register' , user,{
+        
         headers:{
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
 
     })
-   setdata(response.data)
-setloading(false)
+   return(response.data)
 
 }
  catch(error){
-  
-   seterror(error.message)
+    if (error.response) {
+        return error.response.data;
+      }
+   return(error.message)
 
  }
 }
-const currentuser =async(user)=>{
+//get current user 
+const currentuser =async()=>{
     try{
-        setloading(true)
-        seterror(false)
-    const response= await axios.post('/v1/users/register' , user,{
+        
+    const response= await axios.post('http://localhost:8080/api/v1/users/current-user' ,{
         headers:{
             'accept': 'application/json',
             'Content-Type': 'application/json'
         }
 
     })
-   setdata(response.data)
-setloading(false)
+   
 
+ return response.data
 }
  catch(error){
-  
-   seterror(error.message)
+    if (error.response) {
+        return error.response.data;
+      }
+   return(error.message)
 
  }
 }
-return {data,loading,error,login,signup}
+return {login,signup,currentuser}
 
 }
-export default uselogin
+export default useAuth
