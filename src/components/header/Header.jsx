@@ -22,10 +22,10 @@ function Header() {
     ]
 
     return (
-        <div>
+        <div className='flex '>
             {
                 navItem.map((item) => (
-                    <div key={item.slug}>
+                    <div key={item.slug} className='mr-8'>
                         <NavLink to={item.slug}>{item.name}</NavLink>
                     </div>
                 ))

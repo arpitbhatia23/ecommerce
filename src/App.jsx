@@ -17,11 +17,7 @@ function App() {
     })},[])
   return (
     <>
-    <Toaster/>
-    {/* <Signin/>
-
-
-      <h1>hello</h1> */}
+    <Header/>
       <Outlet/>
 
     </>
