@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import Logout from './Logout'
 
 function Header() { 
     const authStautus=useSelector(state=>state.auth.status)
@@ -56,9 +57,7 @@ function Header() {
             }
             {
                 authStautus && (
-                    <li>
-                        logout
-                    </li>
+                    <Logout/>
                 )
             }
         </div>

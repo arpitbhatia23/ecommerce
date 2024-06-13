@@ -14,8 +14,9 @@ function App() {
   useEffect(()=>{
     currentuser()
     .then((userData) => {
-      if (userData) {
-        dispatch(login(userData))
+      console.log(userData)
+      if (userData?.status=="200") {
+        dispatch(login(userData.data))
         navigate('/')
         toast.success('wellcome to ecommerce');
       }
