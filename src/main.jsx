@@ -10,11 +10,13 @@ import Order from "./components/Order.jsx"
 import Admin from "./components/Admin.jsx"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Cart from './components/Cart.jsx'
+import { Provider } from 'react-redux'
+import store from './App/store.js'
 const router=createBrowserRouter([{
   path:"/",
   element:<App/>,
   children:[
-    {path:"/home",
+    {path:"/",
       element:<Home/>
     },
     {
@@ -51,6 +53,9 @@ const router=createBrowserRouter([{
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router}/>
+
+    </Provider>
   </React.StrictMode>,
 )

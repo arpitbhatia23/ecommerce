@@ -2,16 +2,24 @@ import React from 'react';
 import useAuth from '../Auth/auth';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {login as Authlogin}from '../App/slice'
 function Signin() {
   const { register, handleSubmit } = useForm();
   const {login} = useAuth();
+  const navigate=useNavigate()
+  const dispatch=useDispatch()
   const loginHandler = async (user) => {
     try {
       const session= await login(user);
       console.log(session)
       if (session?.success === true) {
         toast.success(session?.message);
+       dispatch(Authlogin(session))
+        navigate("/")
+
+      
 
       }
       if(session?.success===false){
