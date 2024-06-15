@@ -9,9 +9,9 @@ import { Formik,Form,Field,ErrorMessage} from 'formik'
 
 
 const signupSchema=Yup.object({
-  name:Yup.string().required(),
-  email:Yup.string().required(),
-  pass:Yup.string().required().min("","enter 2 characters"),
+  name:Yup.string().required("*name is required"),
+  email:Yup.string().required("*email is required"),
+  pass:Yup.string().required().min("","*enter 2 characters"),
   mobile:Yup.number().required().min("10","*enter valid mobile")
 })
 
@@ -39,25 +39,26 @@ function Singup() {
           <div className='space-y-5'>
             <label htmlFor="">name</label>
             <Field type ="text" placeholder="Enter your name" 
-            name="name"/>
-            <ErrorMessage name='name'/>
+            name="name"/> <br />
+            <div className='text-red-500'> <ErrorMessage name='name'/>
+            </div>
               <br /><br />
 
 
               <label htmlFor="">email</label>
-            <Field type ="email" placeholder="Enter your email" name="email"/>
-            <ErrorMessage name='name'/>
+            <Field type ="email" placeholder="Enter your email" name="email"/> <br />
+            <div className='text-red-500'><ErrorMessage name='email'/></div> 
               <br /><br />
 
               <label htmlFor="">mobile</label>
             <Field type ="tel" placeholder="Enter your mobile
-          " name="mobile"/>
-            <ErrorMessage name='mobile'/>
+          " name="mobile"/> <br />
+            <div className='text-red-500'><ErrorMessage name='mobile'/></div>
               <br /><br />
 
               <label htmlFor="">password</label>
-            <Field type ="password" placeholder="Enter your password" name="pass"/>
-            <ErrorMessage name='pass'/>
+            <Field type ="password" placeholder="Enter your password" name="pass"/> <br />
+            <div className='text-red-500'><ErrorMessage name='pass'/></div>
               <br /><br />
             <button className='w-full bg-blue-300 rounded-xl'>
               Sign up
