@@ -55,13 +55,37 @@ const currentuser =async()=>{
     try{
         
     const response= await axios.post('http://localhost:8080/api/v1/users/current-user' ,{
-        headers:{
-            'accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
+        headers:
+            'accept: application/json'
+           
+        
 
     })
-   
+
+ return response
+}
+ catch(error){
+    if (error.response) {
+        return error.response.data;
+      }
+   return(error.message)
+
+ }
+}
+
+
+const logout =async()=>{
+    try{
+        
+    const response= await axios.post('http://localhost:8080/api/v1/users/logout',{
+        headers:{
+            'accept': 'application/json',
+            'Content-Type': 'application/json',
+        
+
+    }
+
+    })
 
  return response.data
 }
@@ -73,7 +97,9 @@ const currentuser =async()=>{
 
  }
 }
-return {login,signup,currentuser}
+return {login,signup,currentuser,logout}
 
 }
+
+
 export default useAuth

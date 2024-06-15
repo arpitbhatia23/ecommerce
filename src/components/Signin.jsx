@@ -5,22 +5,29 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {login as Authlogin}from '../App/slice'
+import Input from './Input';
+import Button from './Button';
 function Signin() {
   const { register, handleSubmit } = useForm();
-  const {login} = useAuth();
+  const {login,currentuser} = useAuth();
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const loginHandler = async (user) => {
     try {
+      
       const session= await login(user);
       console.log(session)
       if (session?.success === true) {
         toast.success(session?.message);
-       dispatch(Authlogin(session))
-        navigate("/")
-
-      
-
+        currentuser()
+        .then((userData) => {
+          console.log(userData)
+          if (userData?.status=="200") {
+            dispatch(Authlogin(userData.data))
+            navigate('/')
+            
+          }
+        })
       }
       if(session?.success===false){
         toast.error(session?.message)
@@ -54,7 +61,7 @@ function Signin() {
         {/* {error && <p className="text-red-600 mt-8 text-center">{error}</p>} */}
         <form onSubmit={handleSubmit(loginHandler)} className='mt-8'>
           <div className='space-y-5'>
-            <input
+            <Input
               label='Email: '
               placeholder='Enter your email'
               type='email'
@@ -67,7 +74,7 @@ function Signin() {
                 },
               })}
             />
-            <input
+            <Input
               label='Password: '
               type='password'
               placeholder='Enter your password'
@@ -75,9 +82,9 @@ function Signin() {
                 required: true,
               })}
             />
-            <button type='submit' className='w-full'>
+            <Button type='submit' className='w-full'>
               Sign in
-            </button>
+            </Button>
           </div>
         </form>
       </div>
