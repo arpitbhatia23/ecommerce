@@ -24,7 +24,7 @@ function Singup() {
               label='Name: '
               placeholder='Enter your name'
               type='text'
-              {...register('Name', {
+              {...register('name', {
                 required: true,
               })}
             /> 
