@@ -50,7 +50,7 @@ function Header() {
         <header className='bg-gray-600 text-white w-full  h-12 flex  items-center justify-center'>
         <div className='flex  '>
             <Logo classname="text-center "/>
-            <Searchbar/>
+            {authStautus && <Searchbar/>}
             {
                 navItem.map((item) => item.active?(
                     <div key={item.slug} className='ml-8 mr-8'>
