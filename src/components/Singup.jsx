@@ -1,8 +1,12 @@
 import React from 'react'
 import Input from './Input'
 import Button from './Button'
+import { useForm } from 'react-hook-form';
+
 
 function Singup() {
+  const { register, handleSubmit } = useForm();
+
   return (
     <>
       
@@ -20,24 +24,36 @@ function Singup() {
               label='Name: '
               placeholder='Enter your name'
               type='text'
+              {...register('Name', {
+                required: true,
+              })}
             /> 
 
              <Input
               label='Email: '
               placeholder='Enter your Email'
               type='email'
+              {...register('Email', {
+                required: true,
+              })}
             />
 
              <Input
               label='Mobile: '
               placeholder='Enter your Mobile Number'
               type='tel'
+              {...register('Mobile', {
+                required: true,
+              })}
             />
 
             <Input
               label='Password: '
               type='password'
               placeholder='Enter your password'
+              {...register('Password', {
+                required: true,
+              })}
 />
             <Button type='submit' className='w-full bg-blue-300 rounded-xl'>
               Sign up
