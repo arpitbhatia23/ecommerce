@@ -10,36 +10,36 @@ function Header() {
     console.log(authStautus)
     const navItem = [
         {
-            name: "home",
+            name: "Home",
             slug: "/",
             active:authStautus
         },
         {
-            name: "product",
+            name: "Product",
             slug: "/product",
             active:authStautus
 
         },
         {
-            name: "cart",
+            name: "Cart",
             slug: "/cart",
             active:authStautus
 
         },
         {
-            name: "order",
+            name: "Order",
             slug: "/order",
             active:authStautus
 
         },
         {
-            name: "signup",
+            name: "Signup",
             slug: "/signup",
             active:!authStautus
 
         },
         {
-            name: "signin",
+            name: "Signin",
             slug: "/signin",
             active:!authStautus
 
