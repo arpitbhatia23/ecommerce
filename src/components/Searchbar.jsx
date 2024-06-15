@@ -1,11 +1,11 @@
 import React from 'react'
 import Input from './Input'
-import { AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineFileSearch, AiOutlineSearch } from 'react-icons/ai'
 
 const Searchbar = () => {
   return (
     <div className='flex'>
-      <Input className='h-2  ml-4 text-black'/>
+      <Input className='h-2  ml-4 text-black'/> <AiOutlineFileSearch/>
     </div>
   )
 }
