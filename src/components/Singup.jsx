@@ -1,4 +1,6 @@
 import React from 'react'
+import Input from './Input'
+import Button from './Button'
 
 function Singup() {
   return (
@@ -14,36 +16,32 @@ function Singup() {
 
           <form className='mt-1 flex justify-evenly item-center'>
           <div className='space-y-5'>
-            <label htmlFor="">Name:       </label>
-            <input
+            <Input
               label='Name: '
               placeholder='Enter your name'
               type='text'
-            /> <br />
-                        <label htmlFor="">Email:</label>
+            /> 
 
-             <input
+             <Input
               label='Email: '
               placeholder='Enter your Email'
               type='email'
-            /><br/>
-                        <label htmlFor="">Mobile:       </label>
+            />
 
-             <input
+             <Input
               label='Mobile: '
               placeholder='Enter your Mobile Number'
               type='tel'
-            /> <br />
-                        <label htmlFor="">Password:       </label>
+            />
 
-            <input
+            <Input
               label='Password: '
               type='password'
               placeholder='Enter your password'
 />
-            <button type='submit' className='w-full bg-blue-300 rounded-xl'>
+            <Button type='submit' className='w-full bg-blue-300 rounded-xl'>
               Sign up
-            </button>
+            </Button>
           </div>
         </form>
 </div>

@@ -14,18 +14,14 @@ function App() {
   useEffect(()=>{
     currentuser()
     .then((userData) => {
-<<<<<<< HEAD
       if (userData) {
         dispatch(login(userData))
-        // navigate('/')
-=======
       console.log(userData)
       if (userData?.status=="200") {
         dispatch(login(userData.data))
         navigate('/')
->>>>>>> 39d3d96389a608046a2c92c638854c0d9606019e
         toast.success('wellcome to ecommerce');
-      }
+      }}
     })},[])
   return (
     <>
