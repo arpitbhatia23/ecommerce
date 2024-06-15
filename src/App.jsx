@@ -16,7 +16,7 @@ function App() {
     .then((userData) => {
       if (userData) {
         dispatch(login(userData))
-        navigate('/')
+        // navigate('/')
         toast.success('wellcome to ecommerce');
       }
     })},[])
