@@ -12,7 +12,7 @@ const signupSchema=Yup.object({
   name:Yup.string().required(),
   email:Yup.string().required(),
   pass:Yup.string().required().min("","enter 2 characters"),
-  mobile:Yup.number().required().min("10","enter valid mobile")
+  mobile:Yup.number().required().min("10","*enter valid mobile")
 })
 
 
