@@ -19,15 +19,9 @@ function Signin() {
       console.log(session)
       if (session?.success === true) {
         toast.success(session?.message);
-        currentuser()
-        .then((userData) => {
-          console.log(userData)
-          if (userData?.status=="200") {
-            dispatch(Authlogin(userData.data))
+      
             navigate('/')
-            
-          }
-        })
+            dispatch(Authlogin(session))
       }
       if(session?.success===false){
         toast.error(session?.message)

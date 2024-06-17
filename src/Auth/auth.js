@@ -1,7 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
- 
-
 const useAuth=()=>{
 // login user
  const login =async(user)=>{
@@ -31,14 +28,16 @@ const useAuth=()=>{
 const signup =async(user)=>{
     try{
        
-    const response= await axios.post('/v1/users/register' , user,{
+    const response= await axios.post('/v1/users/register' ,user,{
         
         headers:{
             'accept': 'application/json',
             'Content-Type': 'application/json'
-        }
+        },
+        withCredentials:true
 
     })
+    console.log(user)
    return(response.data)
 
 }
@@ -54,19 +53,23 @@ const signup =async(user)=>{
 const currentuser =async()=>{
     try{
         
-    const response= await axios.post('http://localhost:8080/api/v1/users/current-user' ,{
-        headers:
-            'accept: application/json'
-           
+    const response= await axios.get('v1/users/current-user' ,{
+        headers:{
+            'accept': 'application/json' ,
+            'Content-Type': 'application/json',
+            
+            
+        },
+        withCredentials:true
         
 
     })
 
- return response
+ return response.data
 }
  catch(error){
     if (error.response) {
-        return error.response.data;
+        return error.response;
       }
    return(error.message)
 
@@ -77,13 +80,12 @@ const currentuser =async()=>{
 const logout =async()=>{
     try{
         
-    const response= await axios.post('http://localhost:8080/api/v1/users/logout',{
+    const response= await axios.post('/v1/users/logout',{
         headers:{
             'accept': 'application/json',
             'Content-Type': 'application/json',
-        
-
-    }
+    },
+    withCredentials:true
 
     })
 
@@ -97,7 +99,26 @@ const logout =async()=>{
 
  }
 }
-return {login,signup,currentuser,logout}
+const refreshtoken=async()=>{
+    try {
+        const response=axios.post("/v1/refresh-token",{},{
+            headers:{
+                'accept': 'application/json',
+        },
+        withCredentials:true
+        
+    }
+)
+return response
+    } catch (error) {
+        if (error.response) {
+            return error.response.data;
+          }
+       return(error.message)
+    
+    }
+}
+return {login,signup,currentuser,logout,refreshtoken}
 
 }
 
