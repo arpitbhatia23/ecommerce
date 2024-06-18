@@ -4,6 +4,12 @@ import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
 import Logo from '../Logo'
 import Searchbar from '../Searchbar'
+import { IoHomeOutline } from 'react-icons/io5'
+import { AiFillProduct } from 'react-icons/ai'
+import { MdOutlineAdd, MdShoppingCart } from 'react-icons/md'
+import { GiShoppingBag } from 'react-icons/gi'
+import { IoIosLogIn } from 'react-icons/io'
+import { FaRegUser, FaRegUserCircle } from 'react-icons/fa'
 
 function Header() { 
     const authStautus=useSelector(state=>state.auth.status)
@@ -12,64 +18,85 @@ function Header() {
         {
             name: "Home",
             slug: "/",
-            active:authStautus
+            active:authStautus,
+            icon:<IoHomeOutline size={25}/>
         },
         {
             name: "Product",
             slug: "/product",
-            active:authStautus
+            active:authStautus,
+            icon:<AiFillProduct size={25}/>
+
 
         },
         {
             name: "Cart",
             slug: "/cart",
-            active:authStautus
+            active:authStautus,
+            icon:<MdShoppingCart size={25} />
+
 
         },
         {
             name: "Order",
             slug: "/order",
-            active:authStautus
+            active:authStautus,
+            icon:<GiShoppingBag size={25}/>
+
 
         },
         {
             name: "Signup",
             slug: "/signup",
-            active:!authStautus
+            active:!authStautus,
+            icon:<IoIosLogIn size={25}/>
+
 
         },
         {
             name: "Signin",
             slug: "/signin",
-            active:!authStautus
+            active:!authStautus,
+            icon:<FaRegUserCircle size={25}/>
+
 
         }
     ]
 
     return (
-        <header className='bg-gray-600 text-white w-full  h-12 flex  items-center justify-center'>
-        <div className='flex  '>
-            <Logo classname="text-center "/>
-            {authStautus && <Searchbar/>}
+        <header className='bg-gray-600 text-white w-full  py-2'>
+        <nav className='flex  '>
+           <div className='ml-10 px-4 '>
+           <Logo classname="text-center "/>
+            </div> 
+            
+            <ul className='flex ml-auto items-center mr-4 '>
+            {authStautus && <Searchbar />}
             {
+             
                 navItem.map((item) => item.active?(
-                    <div key={item.slug} className='ml-8 mr-8 flex items-center'>
-                        <NavLink to={item.slug} >{item.name}</NavLink>
+                    <li key={item.slug}>
+                    <div  className='inline-block px-6 py-2 duration-200   rounded-full'>
+                        <NavLink to={item.slug} className='flex items-center' >{item.icon}{item.name}</NavLink>
                     </div>
+                    </li>
                 ):null)
+                
 
             }
-            <ul className="flex items-center  ">
+           
+      
                 <li >
                 {
                 authStautus && (
-                    <Logout className="hover:border-b-red-500" />
+
+                    <Logout className="hover:border-b-red-500 " />
                 )
             }
                 </li>
             </ul>
            
-        </div>
+        </nav>
         </header>
     )
 }

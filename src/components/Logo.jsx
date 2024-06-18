@@ -4,9 +4,9 @@ import { GiShoppingCart } from 'react-icons/gi'
 
 const Logo = (className="") => {
   return (
-    <div className={`${className}text-4xl flex`}>
+    <div className={`${className}text-4xl flex items-end px-8`}>
     
-      <GiShoppingCart size={40} />
+    ECOMMERCE  <GiShoppingCart size={40} />
     </div>
   )
 }

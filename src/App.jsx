@@ -7,20 +7,27 @@ import Header from './components/header/Header'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {login} from "./App/slice"
+import useProfile from './Auth/profile'
 function App() {
-  const{currentuser,refreshtoken}=useAuth()
+  const{currentuser}=useAuth()
+
   const navigate=useNavigate()
   const dispatch=useDispatch()
   useEffect(()=>{
-    const refresh_token= refreshtoken()
-    console.log(refresh_token)
+  
      currentuser()
     .then((userData) => {
      
-      console.log(userData)
+    
       if (userData?.statusCode=="200") {
         dispatch(login(userData.data))
-        navigate('/')
+        if (userData.data.role==="USER") {
+          navigate('/')
+
+        }
+        if (userData.data.role==="ADMIN") {
+          navigate("/admin")
+        }
         toast.success('wellcome to ecommerce');
       }
       else{

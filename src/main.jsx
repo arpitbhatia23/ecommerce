@@ -12,7 +12,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Cart from './components/Cart.jsx'
 import { Provider } from 'react-redux'
 import store from './App/store.js'
-const router=createBrowserRouter([{
+const router=createBrowserRouter([
+  {
+    path:"/admin",
+    element:<Admin/>
+
+  }
+  ,{
   path:"/",
   element:<App/>,
   children:[
@@ -27,11 +33,7 @@ const router=createBrowserRouter([{
       path:"/order",
       element:<Order/>
     },
-    {path:"/admin",
-      element:<Admin/>
     
-
-    },
     {
       path:"/signin",
       element:<Signin/>

@@ -9,7 +9,7 @@ import Input from './Input';
 import Button from './Button';
 function Signin() {
   const { register, handleSubmit } = useForm();
-  const {login,currentuser} = useAuth();
+  const {login} = useAuth();
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const loginHandler = async (user) => {
@@ -19,8 +19,13 @@ function Signin() {
       console.log(session)
       if (session?.success === true) {
         toast.success(session?.message);
-      
-            navigate('/')
+      if(session.data.user.role==="USER"){
+        navigate('/')
+
+      }
+      if (session.data.user.role==="ADMIN") {
+        navigate("/admin")
+      }
             dispatch(Authlogin(session))
       }
       if(session?.success===false){

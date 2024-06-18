@@ -3,7 +3,9 @@ import React, { forwardRef, useId } from 'react'
 const Input = ({label,
     type="text",
     className="",
+    placeholder="",
     ...props
+    
 } ,ref) => {
     const id =useId()
   return (
@@ -15,6 +17,7 @@ const Input = ({label,
              className={`${className} px-4 py-4 rounded-lg w-full`} 
              ref={ref}
              htmlFor={id}
+             placeholder={placeholder}
              {...props}
             />
       

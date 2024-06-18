@@ -3,6 +3,7 @@ import { logout as Authlogout} from '../../App/slice'
 import useAuth from '../../Auth/auth'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { IoIosLogOut } from 'react-icons/io'
 const Logout = (className="") => {
   const navigate=useNavigate()
     const {logout}=useAuth()
@@ -19,7 +20,7 @@ const Logout = (className="") => {
     }
   return (
     <div>
-      <button  className={`${className}`} onClick={logouthandel}>logout</button>
+      <button  className={`${className} flex`} onClick={logouthandel}><IoIosLogOut size={25}/> logout</button>
     </div>
   )
 }
