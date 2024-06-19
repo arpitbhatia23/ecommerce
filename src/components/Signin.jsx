@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import {login as Authlogin}from '../App/slice'
 import Input from './Input';
 import Button from './Button';
-import Cookies from 'js-cookie';
+
 function Signin() {
   const { register, handleSubmit } = useForm();
   const {login} = useAuth();
@@ -18,7 +18,6 @@ function Signin() {
       
       const session= await login(user);
       if (session?.success === true) {
-        Cookies.set("authtoken",session.data.accessToken)
         toast.success(session?.message);
       
       if(session.data.user.role==="USER"){
@@ -91,6 +90,8 @@ function Signin() {
           </div>
         </form>
       </div>
+
+      
     </div>
   );
 }
