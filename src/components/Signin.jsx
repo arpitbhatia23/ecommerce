@@ -16,7 +16,7 @@ function Signin() {
     try {
       
       const session= await login(user);
-      console.log(session)
+     
       if (session?.success === true) {
         toast.success(session?.message);
       if(session.data.user.role==="USER"){

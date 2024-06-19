@@ -10,10 +10,11 @@ import { MdOutlineAdd, MdShoppingCart } from 'react-icons/md'
 import { GiShoppingBag } from 'react-icons/gi'
 import { IoIosLogIn } from 'react-icons/io'
 import { FaRegUser, FaRegUserCircle } from 'react-icons/fa'
+import { FaBoxOpen } from 'react-icons/fa6'
 
 function Header() { 
     const authStautus=useSelector(state=>state.auth.status)
-    console.log(authStautus)
+
     const navItem = [
         {
             name: "Home",
@@ -41,15 +42,16 @@ function Header() {
             name: "Order",
             slug: "/order",
             active:authStautus,
-            icon:<GiShoppingBag size={25}/>
+            icon:<FaBoxOpen size={25}/>
 
 
         },
         {
-            name: "Signup",
+            name: " Signup",
             slug: "/signup",
             active:!authStautus,
-            icon:<IoIosLogIn size={25}/>
+            icon:<FaRegUserCircle size={20}/>
+
 
 
         },
@@ -57,14 +59,14 @@ function Header() {
             name: "Signin",
             slug: "/signin",
             active:!authStautus,
-            icon:<FaRegUserCircle size={25}/>
-
+            icon:<IoIosLogIn size={25}/>
+           
 
         }
     ]
 
     return (
-        <header className='bg-gray-600 text-white w-full  py-2'>
+        <header className='bg-gray-600 text-white w-full  py-2 shadow-md shadow-gray-900'>
         <nav className='flex  '>
            <div className='ml-10 px-4 '>
            <Logo classname="text-center "/>
@@ -77,7 +79,7 @@ function Header() {
                 navItem.map((item) => item.active?(
                     <li key={item.slug}>
                     <div  className='inline-block px-6 py-2 duration-200   rounded-full'>
-                        <NavLink to={item.slug} className='flex items-center' >{item.icon}{item.name}</NavLink>
+                        <NavLink to={item.slug} className='flex items-center' >{item.icon} {item.name}</NavLink>
                     </div>
                     </li>
                 ):null)
@@ -102,3 +104,20 @@ function Header() {
 }
 
 export default Header
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

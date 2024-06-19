@@ -7,15 +7,16 @@ import Product from "./components/Product.jsx"
 import Signin from './components/Signin.jsx'
 import Singup from "./components/Singup.jsx"
 import Order from "./components/Order.jsx"
-import Admin from "./components/Admin.jsx"
+import Admin from "./Admin/Admin.jsx"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Cart from './components/Cart.jsx'
 import { Provider } from 'react-redux'
 import store from './App/store.js'
+import Authlayout from "./components/Authlayout.jsx"
 const router=createBrowserRouter([
   {
     path:"/admin",
-    element:<Admin/>
+    element:(<Authlayout Authentication><Admin/></Authlayout>)
 
   }
   ,{
@@ -23,29 +24,29 @@ const router=createBrowserRouter([
   element:<App/>,
   children:[
     {path:"/",
-      element:<Home/>
+      element:(<Authlayout Authentication><Home/></Authlayout>)
     },
     {
       path:"/product",
-      element:<Product/>
+      element:(<Authlayout Authentication><Product/></Authlayout>)
     },
     {
       path:"/order",
-      element:<Order/>
+      element:(<Authlayout Authentication><Order/></Authlayout>)
     },
     
     {
       path:"/signin",
-      element:<Signin/>
+      element:(<Authlayout Authentication={false}><Signin/></Authlayout>)
 
     },
     {
       path:"/signup",
-      element:<Singup/>
+      element:(<Authlayout Authentication><Singup/></Authlayout>)
     },
     {
       path:"/cart",
-      element:<Cart/>
+      element:(<Authlayout Authentication><Cart/></Authlayout>)
     }
 
   ]
