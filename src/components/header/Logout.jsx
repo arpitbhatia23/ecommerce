@@ -4,6 +4,7 @@ import useAuth from '../../Auth/auth'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { IoIosLogOut } from 'react-icons/io'
+import Cookies from 'js-cookie'
 const Logout = (className="") => {
   const navigate=useNavigate()
     const {logout}=useAuth()
@@ -12,6 +13,7 @@ const Logout = (className="") => {
         logout()
         .then((userData)=>{
           console.log(userData==="success")
+         
             dispatch(Authlogout())
           navigate("/signin")
 

@@ -28,7 +28,9 @@ const Nav = () => {
             </div>
             <ul className='flex  ml-auto items-center mr-4'>
             { sidenav.map((item)=>(
-                    <button className=' inline-block px-6 py-2 duration-200   rounded-full'>{item.name} </button>
+              <li key={item.id}>
+                    <button className=' inline-block px-6 py-2 duration-200   '>{item.name} </button>
+                    </li>
             )
           )
               

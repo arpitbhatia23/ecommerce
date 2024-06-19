@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import {login as Authlogin}from '../App/slice'
 import Input from './Input';
 import Button from './Button';
+import Cookies from 'js-cookie';
 function Signin() {
   const { register, handleSubmit } = useForm();
   const {login} = useAuth();
@@ -16,9 +17,10 @@ function Signin() {
     try {
       
       const session= await login(user);
-     
       if (session?.success === true) {
+        Cookies.set("authtoken",session.data.accessToken)
         toast.success(session?.message);
+      
       if(session.data.user.role==="USER"){
         navigate('/')
 
@@ -32,7 +34,9 @@ function Signin() {
         toast.error(session?.message)
       }
     } catch (error) {
-      toast.error(error);
+      const errorMessage = error.response?.data?.message || error.message || 'An error occurred';
+      toast.error(errorMessage);
+     
     }
     
   };

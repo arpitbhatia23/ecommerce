@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
@@ -11,10 +11,12 @@ import { GiShoppingBag } from 'react-icons/gi'
 import { IoIosLogIn } from 'react-icons/io'
 import { FaRegUser, FaRegUserCircle } from 'react-icons/fa'
 import { FaBoxOpen } from 'react-icons/fa6'
+import Userdropdown from './Userdropdown'
 
 function Header() { 
     const authStautus=useSelector(state=>state.auth.status)
-
+    const userdata=useSelector(state=>state.auth.userData)
+    const [visibleDropdow ,setvisibleDropdown]=useState(false)
     const navItem = [
         {
             name: "Home",
@@ -63,10 +65,12 @@ function Header() {
            
 
         }
+       
     ]
 
     return (
-        <header className='bg-gray-600 text-white w-full  py-2 shadow-md shadow-gray-900'>
+        <>
+        <header className='bg-gray-600 text-white   py-2 shadow-md shadow-gray-900'>
         <nav className='flex  '>
            <div className='ml-10 px-4 '>
            <Logo classname="text-center "/>
@@ -86,20 +90,33 @@ function Header() {
                 
 
             }
-           
+
+               <li>
+                {
+                    authStautus && (
+                        <button className='flex px-6 py-2 duration-200 gap-x-2  ' onClick={()=>setvisibleDropdown(!visibleDropdow)}>
+                           <img src={userdata?.data?.avatar?.url} alt="" className='rounded-[50%] h-8 w-8'/>
+                            user
+
+                        </button>
+                    )
+                }
+                
+               </li>
       
                 <li >
-                {
-                authStautus && (
-
-                    <Logout className="hover:border-b-red-500 " />
-                )
-            }
+               
                 </li>
             </ul>
            
         </nav>
         </header>
+
+        {
+            visibleDropdow && <Userdropdown/>
+            
+        }
+        </>
     )
 }
 

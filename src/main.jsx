@@ -42,7 +42,7 @@ const router=createBrowserRouter([
     },
     {
       path:"/signup",
-      element:(<Authlayout Authentication><Singup/></Authlayout>)
+      element:(<Authlayout Authentication={false}><Singup/></Authlayout>)
     },
     {
       path:"/cart",

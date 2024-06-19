@@ -10,17 +10,18 @@ import {login} from "./App/slice"
 import useProfile from './Auth/profile'
 function App() {
   const{currentuser}=useAuth()
-
+ const {profile}=useProfile()
   const navigate=useNavigate()
   const dispatch=useDispatch()
   useEffect(()=>{
-  
+    const p=profile()
+  console.log(p)
      currentuser()
     .then((userData) => {
-     
+     console.log(userData)
     
       if (userData?.statusCode=="200") {
-        dispatch(login(userData.data))
+        dispatch(login(userData))
         if (userData.data.role==="USER") {
           navigate('/')
 
@@ -30,10 +31,8 @@ function App() {
         }
         toast.success('wellcome to ecommerce');
       }
-      else{
-        navigate("/signin")
-      }
-    })},[dispatch])
+      
+    })},[])
   return (
     <>
     <Toaster/>
