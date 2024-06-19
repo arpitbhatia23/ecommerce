@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import {login as Authlogin}from '../App/slice'
 import Input from './Input';
 import Button from './Button';
+import Sidenav from '../Admin/Sidenav';
 function Signin() {
   const { register, handleSubmit } = useForm();
   const {login} = useAuth();
@@ -87,6 +88,8 @@ function Signin() {
           </div>
         </form>
       </div>
+
+      
     </div>
   );
 }
