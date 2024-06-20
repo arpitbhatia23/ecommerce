@@ -11,7 +11,7 @@ const Userdropdown = () => {
     {    id:1,
         name:"profile",
         active:auth,
-        slug:"profile",
+        slug:"/admin/profile",
         icon:<FaRegCircleUser size={20}/>
     },
     {

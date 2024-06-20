@@ -21,7 +21,7 @@ const router=createBrowserRouter([
     element:(<Authlayout Authentication><Admin/></Authlayout>),
     children:[
       {
-        path:"profile",
+        path:"/admin/profile",
         element:(<Authlayout Authentication={true}><Profile/></Authlayout>)
       },
       {

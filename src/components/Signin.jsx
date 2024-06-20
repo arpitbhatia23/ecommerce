@@ -23,7 +23,6 @@ function Signin() {
      
            currentuser()
            .then((userdata)=>{
-            console.log(userdata)
             dispatch(Authlogin(userdata))
             if(userdata.data.role==="USER"){
               navigate('/')

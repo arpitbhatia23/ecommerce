@@ -15,8 +15,7 @@ const Logout = (className="") => {
         .then((userData)=>{
           console.log(userData)
           if(userData.success===true){
-
-
+           
             dispatch(Authlogout())
             navigate("/signin")
 
@@ -29,7 +28,7 @@ const Logout = (className="") => {
     }
   return (
     <div>
-      <button  className={`${className} flex`} onClick={logouthandel}><IoIosLogOut size={25}/> logout</button>
+      <div  className={`${className} flex`} onClick={logouthandel}><IoIosLogOut size={25}/> logout</div>
     </div>
   )
 }

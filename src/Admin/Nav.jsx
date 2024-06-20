@@ -11,12 +11,12 @@ const Nav = () => {
   const userdata=useSelector(state=>state.auth.userData)
   const [visibleDropdow ,setvisibleDropdown]=useState(false)
   
-    const [toogle,settoogle]=useState(false)
+    const [toogle,settoogle]=useState(true)
       return (
         <>
-          <nav className=' w-full bg-gray-600 py-2 flex text-white'>
+          <nav className=' w-full bg-gray-600 py-2 flex text-white shadow-md shadow-slate-700'>
           <div className='  ml-8 px-2 pt-4'>
-          <button onClick={()=>settoogle(!toogle)}>{!toogle?<RxCross2/>:<SlMenu/>}</button>
+          <button onClick={()=>settoogle(!toogle)}>{!toogle?<RxCross2 size={25}/>:<SlMenu size={25}/>}</button>
 
           
 
@@ -28,11 +28,11 @@ const Nav = () => {
              <ul className='flex  ml-auto items-center mr-4'>
              {
                     authStautus && (
-                        <button className='flex px-6 py-2 duration-200 gap-x-2  ' onClick={()=>setvisibleDropdown(!visibleDropdow)}>
-                           <img src={userdata?.data?.avatar?.url} alt="" className='rounded-[50%] h-8 w-8'/>
-                            user
+                        <div className='flex px-6 py-2 duration-200 gap-x-2  ' onClick={()=>setvisibleDropdown(!visibleDropdow)}>
+                           <img src={userdata?.data?.avatar?.url} alt="" className='rounded-[50%] h-8 w-8 '/>
+                           
 
-                        </button>
+                        </div>
                     )
                 }
             </ul> 

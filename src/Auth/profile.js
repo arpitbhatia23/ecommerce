@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import toast from "react-hot-toast";
  const useProfile=()=>{
 
     const profile=async()=>{
@@ -14,7 +15,10 @@ import Cookies from "js-cookie";
             return response.data
             
         } catch (error) {
-            console.log(error)
+            if (error.response) {
+                return error.response.data;
+              }
+           return(error.message)
         }
     }
     const updateProfile=async(user)=>{
@@ -29,7 +33,10 @@ import Cookies from "js-cookie";
             return response.data
             
         } catch (error) {
-            console.log(error)
+            if (error.response) {
+                return error.response.data;
+              }
+           return(error.message)
         }
     }
     const updateAvatar=async(avatar)=>{
@@ -49,7 +56,7 @@ import Cookies from "js-cookie";
             return response.data
             
         } catch (error) {
-            console.log(error)
+            throw error
         }
     }
     return{profile,updateProfile,updateAvatar}
