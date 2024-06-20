@@ -11,7 +11,6 @@ const Profile = () => {
      useEffect(()=>{
       profile()
       .then((userdata)=>{
-        console.log(userdata)
         setProfileData(userdata)
       })
      },[])

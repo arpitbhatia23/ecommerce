@@ -41,11 +41,15 @@ import toast from "react-hot-toast";
     }
     const updateAvatar=async(avatar)=>{
         try { 
-            const formData = new FormData();
-            formData.append('avatar', avatar);
+            if (!avatar || avatar.length === 0) {
+                throw new Error("Avatar file is required.");
+            }
 
-            
-            
+            // Extract the file from the FileList
+            const avatarFile = avatar.avatar[0];
+            const formData = new FormData();
+            formData.set('avatar', avatarFile);
+
             const response= await axios.patch("http://localhost:8080/api/v1/users/avatar",formData,{
                 headers:{
                 'accept': 'application/json',
@@ -56,7 +60,10 @@ import toast from "react-hot-toast";
             return response.data
             
         } catch (error) {
-            throw error
+            if (error.response) {
+                return error.response.data;
+              }
+           return(error.message)
         }
     }
     return{profile,updateProfile,updateAvatar}

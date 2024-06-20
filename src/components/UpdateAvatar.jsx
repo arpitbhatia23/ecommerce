@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import useProfile from '../Auth/profile'
 import Input from './Input'
 import Button from './Button'
+import toast from 'react-hot-toast'
 const UpdateAvatar = () => {
     const {handleSubmit,register}=useForm()
     const{updateAvatar}=useProfile()
@@ -12,7 +13,15 @@ const UpdateAvatar = () => {
         console.log(avatar)
         updateAvatar(avatar)
         .then((userData)=>{
-           console.log(userData)
+           if (userData.success===true) {
+            toast.success(userData.message)
+            
+           }
+           if (userData.success===false) {
+            toast.error(userData.message)
+            
+           }
+
         })
 
       }

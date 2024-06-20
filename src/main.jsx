@@ -15,6 +15,7 @@ import store from './App/store.js'
 import Authlayout from "./components/Authlayout.jsx"
 import Profile from './components/Profile.jsx'
 import Updateprofile from './components/Updateprofile.jsx'
+import AddProduct from './Admin/AddProduct.jsx'
 const router=createBrowserRouter([
   {
     path:"/admin",
@@ -27,7 +28,12 @@ const router=createBrowserRouter([
       {
         path:"/admin/updateAdminProfile",
         element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
+      },
+      {
+        path:"/admin/addproduct",
+        element:(<Authlayout Authentication ><AddProduct/></Authlayout>)
       }
+
     ]
 
   }
