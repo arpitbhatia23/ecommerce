@@ -69,7 +69,7 @@ const router=createBrowserRouter([
       element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
     }
 
-  ]
+  ] 
 }])
     
   
