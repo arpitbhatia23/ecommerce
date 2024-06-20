@@ -5,6 +5,7 @@ import Userdropdown from './Userdropdown'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Sidenav from './Sidenav';
+import { RxCross2 } from 'react-icons/rx';
 const Nav = () => {
   const authStautus=useSelector(state=>state.auth.status)
   const userdata=useSelector(state=>state.auth.userData)
@@ -15,11 +16,9 @@ const Nav = () => {
         <>
           <nav className=' w-full bg-gray-600 py-2 flex text-white'>
           <div className='  ml-8 px-2 pt-4'>
-          <button onClick={()=>settoogle(!toogle)}><SlMenu/></button>
+          <button onClick={()=>settoogle(!toogle)}>{!toogle?<SlMenu/>:<RxCross2/>}</button>
 
-          {!toogle ? <Sidenav/>:null 
-            
-          }
+          
 
             </div>
             <div className=' ml-8 px-2 '>
@@ -44,6 +43,9 @@ const Nav = () => {
             visibleDropdow && <Userdropdown/>
             
         }
+        {!toogle ? <Sidenav/>:null 
+             
+          }
         </>
   )
 }
