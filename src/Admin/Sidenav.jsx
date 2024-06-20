@@ -24,7 +24,7 @@ const Sidenav = () => {
       ]
   return (
     <>
-    <nav className='fixed top-15 left-0 h-screen w-64 bg-gray-700 p-4'>
+    <nav className='h-screen w-64 bg-gray-700 p-4'>
 <div className='text-white float-right'>
     <button ><RxCross2 size={25}/></button>
 </div>

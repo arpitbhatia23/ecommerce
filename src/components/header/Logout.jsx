@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { IoIosLogOut } from 'react-icons/io'
 import Cookies from 'js-cookie'
+import toast from 'react-hot-toast/headless'
 const Logout = (className="") => {
   const navigate=useNavigate()
     const {logout}=useAuth()
@@ -12,10 +13,16 @@ const Logout = (className="") => {
     const logouthandel=()=>{
         logout()
         .then((userData)=>{
-          console.log(userData==="success")
-         
+          console.log(userData)
+          if(userData.success===true){
+
+
             dispatch(Authlogout())
-          navigate("/signin")
+            navigate("/signin")
+
+          }
+         
+           
 
         })
 

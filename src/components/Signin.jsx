@@ -10,7 +10,7 @@ import Button from './Button';
 
 function Signin() {
   const { register, handleSubmit } = useForm();
-  const {login} = useAuth();
+  const {login,currentuser} = useAuth();
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const loginHandler = async (user) => {
@@ -20,14 +20,20 @@ function Signin() {
       if (session?.success === true) {
         toast.success(session?.message);
       
-      if(session.data.user.role==="USER"){
-        navigate('/')
-
-      }
-      if (session.data.user.role==="ADMIN") {
-        navigate("/admin")
-      }
-            dispatch(Authlogin(session))
+     
+           currentuser()
+           .then((userdata)=>{
+            console.log(userdata)
+            dispatch(Authlogin(userdata))
+            if(userdata.data.role==="USER"){
+              navigate('/')
+      
+            }
+            if (userdata.data.role==="ADMIN") {
+              navigate("/admin")
+            }
+           })
+           
       }
       if(session?.success===false){
         toast.error(session?.message)

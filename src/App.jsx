@@ -7,15 +7,12 @@ import Header from './components/header/Header'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {login} from "./App/slice"
-import useProfile from './Auth/profile'
 function App() {
   const{currentuser}=useAuth()
- const {profile}=useProfile()
   const navigate=useNavigate()
   const dispatch=useDispatch()
   useEffect(()=>{
-    const p=profile()
-  console.log(p)
+    
      currentuser()
     .then((userData) => {
      console.log(userData)

@@ -1,29 +1,25 @@
 import React from 'react'
-import Logout from '../components/header/Logout'
 import Logo from '../components/Logo'
 import { SlMenu } from "react-icons/sl";
+import Userdropdown from './Userdropdown'
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import Sidenav from './Sidenav';
 const Nav = () => {
-    // const sidenav=[
-    //     { 
-    //       id:"1",
-    //       name:"dashboard",
-    //     },
-    //     {
-    //       id:"2",
-    //       name:"product management",
-    //     },
-    
-    //     {
-    //       id:"3",
-    //       name:"order management",
-    //     },
-        
-    //   ]
+  const authStautus=useSelector(state=>state.auth.status)
+  const userdata=useSelector(state=>state.auth.userData)
+  const [visibleDropdow ,setvisibleDropdown]=useState(false)
+  
+    const [toogle,settoogle]=useState(false)
       return (
         <>
           <nav className=' w-full bg-gray-600 py-2 flex text-white'>
           <div className='  ml-8 px-2 pt-4'>
-          <SlMenu size={25} />
+          <button onClick={()=>settoogle(!toogle)}><SlMenu/></button>
+
+          {!toogle ? <Sidenav/>:null 
+            
+          }
 
             </div>
             <div className=' ml-8 px-2 '>
@@ -31,15 +27,23 @@ const Nav = () => {
             </div>
 
              <ul className='flex  ml-auto items-center mr-4'>
-            {/* { sidenav.map((item)=>(
-                    <button className=' inline-block px-6 py-2 duration-200   rounded-full'>{item.name} </button> */}
-            
+             {
+                    authStautus && (
+                        <button className='flex px-6 py-2 duration-200 gap-x-2  ' onClick={()=>setvisibleDropdown(!visibleDropdow)}>
+                           <img src={userdata?.data?.avatar?.url} alt="" className='rounded-[50%] h-8 w-8'/>
+                            user
 
-          <Logout/>
+                        </button>
+                    )
+                }
             </ul> 
             
     
           </nav>
+          {
+            visibleDropdow && <Userdropdown/>
+            
+        }
         </>
   )
 }

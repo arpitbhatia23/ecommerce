@@ -1,7 +1,6 @@
 import React from 'react'
-import Logout from './Logout'
+import Logout from '../components/header/Logout'
 import { useSelector } from 'react-redux'
-import { ID } from 'appwrite'
 import { FaRegCircleUser } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
 
@@ -12,7 +11,7 @@ const Userdropdown = () => {
     {    id:1,
         name:"profile",
         active:auth,
-        slug:"/profile",
+        slug:"profile",
         icon:<FaRegCircleUser size={20}/>
     },
     {

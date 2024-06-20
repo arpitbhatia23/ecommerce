@@ -13,10 +13,22 @@ import Cart from './components/Cart.jsx'
 import { Provider } from 'react-redux'
 import store from './App/store.js'
 import Authlayout from "./components/Authlayout.jsx"
+import Profile from './components/Profile.jsx'
+import Updateprofile from './components/Updateprofile.jsx'
 const router=createBrowserRouter([
   {
     path:"/admin",
-    element:(<Authlayout Authentication><Admin/></Authlayout>)
+    element:(<Authlayout Authentication><Admin/></Authlayout>),
+    children:[
+      {
+        path:"profile",
+        element:(<Authlayout Authentication={true}><Profile/></Authlayout>)
+      },
+      {
+        path:"/admin/updateAdminProfile",
+        element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
+      }
+    ]
 
   }
   ,{
@@ -47,6 +59,14 @@ const router=createBrowserRouter([
     {
       path:"/cart",
       element:(<Authlayout Authentication><Cart/></Authlayout>)
+    },
+    {
+      path:"/profile",
+      element:(<Authlayout Authentication><Profile/></Authlayout>)
+    },
+    {
+      path:"/updateProfile",
+      element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
     }
 
   ]
