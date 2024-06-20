@@ -26,7 +26,6 @@ const Sidenav = () => {
     <>
     <nav className='h-screen w-64 bg-gray-700 p-4'>
 <div className='text-white float-right'>
-    <button ><RxCross2 size={25}/></button>
 </div>
 
     <ul className='  ml-auto items-center mr-4'>

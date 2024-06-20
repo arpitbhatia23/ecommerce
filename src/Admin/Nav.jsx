@@ -16,7 +16,7 @@ const Nav = () => {
         <>
           <nav className=' w-full bg-gray-600 py-2 flex text-white'>
           <div className='  ml-8 px-2 pt-4'>
-          <button onClick={()=>settoogle(!toogle)}>{!toogle?<SlMenu/>:<RxCross2/>}</button>
+          <button onClick={()=>settoogle(!toogle)}>{!toogle?<RxCross2/>:<SlMenu/>}</button>
 
           
 
