@@ -1,6 +1,6 @@
 import React from 'react';
 import useAuth from '../Auth/auth';
-import { useForm } from 'react-hook-form';
+import { useForm ,} from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -9,7 +9,7 @@ import Input from './Input';
 import Button from './Button';
 
 function Signin() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,formState:{errors} } = useForm();
   const {login,currentuser} = useAuth();
   const navigate=useNavigate()
   const dispatch=useDispatch()
@@ -73,7 +73,7 @@ function Signin() {
               placeholder='Enter your email'
               type='email'
               {...register('email', {
-                required: true,
+                required: true ,
                 validate: {
                   matchPattern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
@@ -81,6 +81,8 @@ function Signin() {
                 },
               })}
             />
+            {errors.email && <p className='text-red-500'>email is required</p>}
+            
             <Input
               label='Password: '
               type='password'
@@ -89,6 +91,7 @@ function Signin() {
                 required: true,
               })}
             />
+             {errors.password && <p className='text-red-500'>password is required</p>}
             <Button type='submit' className='w-full'>
               Sign in
             </Button>

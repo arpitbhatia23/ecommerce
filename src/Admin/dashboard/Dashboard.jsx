@@ -5,7 +5,7 @@ import Totalincome from './Totalincome'
 
 const Dashboard = () => {
   return (
-    <div className='flex'>
+    <div className='flex justify-center'>
       <TotalSale/>
       <Totalincome/>
     </div>
