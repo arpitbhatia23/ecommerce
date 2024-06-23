@@ -18,6 +18,7 @@ import Updateprofile from './components/Updateprofile.jsx'
 import AddProduct from './Admin/AddProduct.jsx'
 import Dashboard from './Admin/dashboard/Dashboard.jsx'
 import ChangePassword from './components/ChangePassword.jsx'
+import Products from './components/Products.jsx'
 const router=createBrowserRouter([
   {
     path:"/admin",
@@ -87,6 +88,10 @@ const router=createBrowserRouter([
     {
       path:"/changepassword",
       element:(<Authlayout Authentication ><ChangePassword/></Authlayout>)
+    },
+    {
+      path:"/product/:slug",
+      element:(<Authlayout Authentication ><Products/></Authlayout>)
     }
 
 

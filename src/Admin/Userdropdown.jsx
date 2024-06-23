@@ -34,7 +34,7 @@ const Userdropdown = () => {
   return (
    <>
     <div className=' shadow-lg shadow-slate-900 rounded-lg absolute right-16 mt-6 flex flex-col
-            gap-y-4 py-4  px-4' >
+            gap-y-4 py-4  px-4 bg-white' >
     {
         userdropdown.map((item)=>item.active?(
            
