@@ -100,7 +100,7 @@ try {
                             }
                         
 
- return {FetchAllProduct,FetchProductById,AddCart}
+ return {FetchAllProduct,FetchProductById,AddCart,Cart}
 
 }
 export default UseEcommerceApi
