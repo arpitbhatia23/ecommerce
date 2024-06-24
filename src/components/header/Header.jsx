@@ -83,7 +83,7 @@ function Header() {
                 navItem.map((item) => item.active?(
                     <li key={item.slug}>
                     <div  className='inline-block px-6 py-2 duration-200   rounded-full'>
-                        <NavLink to={item.slug} className='flex items-center' >{item.icon} {item.name}</NavLink>
+                        <NavLink to={item.slug} className='flex items-center gap-x-2' >{item.icon} {item.name}</NavLink>
                     </div>
                     </li>
                 ):null)

@@ -99,18 +99,21 @@ const logout =async()=>{
 
  }
 }
-const refreshtoken=async()=>{
+const change_password=async(password)=>{
+    
     try {
-        const response=axios.post("/v1/refresh-token",{},{
+        const response= await axios.post("/v1/users/change-password",password,{
             headers:{
                 'accept': 'application/json',
+                'Content-Type': 'application/json',
         },
-        withCredentials:true
         
     }
 )
-return response
-    } catch (error) {
+return  response.data
+    } 
+    
+    catch (error) {
         if (error.response) {
             return error.response.data;
           }
@@ -118,7 +121,7 @@ return response
     
     }
 }
-return {login,signup,currentuser,logout,refreshtoken}
+return {login,signup,currentuser,logout,change_password}
 
 }
 

@@ -15,6 +15,10 @@ import store from './App/store.js'
 import Authlayout from "./components/Authlayout.jsx"
 import Profile from './components/Profile.jsx'
 import Updateprofile from './components/Updateprofile.jsx'
+import AddProduct from './Admin/AddProduct.jsx'
+import Dashboard from './Admin/dashboard/Dashboard.jsx'
+import ChangePassword from './components/ChangePassword.jsx'
+import Products from './components/Products.jsx'
 const router=createBrowserRouter([
   {
     path:"/admin",
@@ -27,7 +31,20 @@ const router=createBrowserRouter([
       {
         path:"/admin/updateAdminProfile",
         element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
+      },
+      {
+        path:"/admin/addproduct",
+        element:(<Authlayout Authentication ><AddProduct/></Authlayout>)
+      },
+      {
+        path:"/admin/dashboard",
+        element:(<Authlayout Authentication ><Dashboard/></Authlayout>)
+      },
+      {
+        path:"/admin/changepassword",
+        element:(<Authlayout Authentication ><ChangePassword/></Authlayout>)
       }
+
     ]
 
   }
@@ -67,7 +84,16 @@ const router=createBrowserRouter([
     {
       path:"/updateProfile",
       element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
+    },
+    {
+      path:"/changepassword",
+      element:(<Authlayout Authentication ><ChangePassword/></Authlayout>)
+    },
+    {
+      path:"/product/:slug",
+      element:(<Authlayout Authentication ><Products/></Authlayout>)
     }
+
 
   ] 
 }])

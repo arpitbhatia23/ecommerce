@@ -3,6 +3,7 @@ import Logout from '../components/header/Logout'
 import { useSelector } from 'react-redux'
 import { FaRegCircleUser } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
+import { CgArrowsExchangeAlt } from 'react-icons/cg'
 
 const Userdropdown = () => {
    const auth=useSelector(state=>state.auth.status)
@@ -14,8 +15,14 @@ const Userdropdown = () => {
         slug:"/admin/profile",
         icon:<FaRegCircleUser size={20}/>
     },
+    {    id:2,
+        name:"changepassword",
+        active:auth,
+        slug:"/admin/changepassword",
+        icon:<CgArrowsExchangeAlt size={20}/>
+    },
     {
-        id:2,
+        id:3,
         name:<Logout/>,
         active:auth
 
@@ -27,7 +34,7 @@ const Userdropdown = () => {
   return (
    <>
     <div className=' shadow-lg shadow-slate-900 rounded-lg absolute right-16 mt-6 flex flex-col
-            gap-y-4 py-4  px-4' >
+            gap-y-4 py-4  px-4 bg-white' >
     {
         userdropdown.map((item)=>item.active?(
            
