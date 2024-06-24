@@ -7,6 +7,7 @@ import Header from './components/header/Header'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {login} from "./App/slice"
+import Footer from './components/Footer/Footer'
 function App() {
   const{currentuser}=useAuth()
   const navigate=useNavigate()
@@ -32,6 +33,8 @@ function App() {
     <Toaster/>
     <Header/>
       <Outlet/>
+
+      <Footer/>
 
     </>
   )
