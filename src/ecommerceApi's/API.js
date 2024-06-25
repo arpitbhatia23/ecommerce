@@ -27,29 +27,8 @@ try {
 
     }
 
-    const  FetchProductById=async(id)=>{
-        try {
-              
-            const response= await axios.get(`/v1/ecommerce/products/${id}`,
-                {
-                    headers:{
-                        'accept': 'application/json',
-                    }
-                }
-            )
-            return await response.data
-        
-        
-        } catch (error) {
-            if (error.response) {
-                return error.response.data;
-              }
-           return(error.message)
-        }
-        
-        
-        
-            }
+    
+    
         
             const  AddCart=async(id)=>{
                 try {
@@ -98,9 +77,30 @@ try {
                         
                         
                             }
+const createProduct=(data)=>{
+
+try {
+    
+    const response=axios.post("/v1/ecommerce/products/",{data},{
+             headers:{
+                'accept': 'application/json',
+        }
+    }
+    
+
+    )
+    return response.data
+} catch (error) {
+    if (error.response) {
+        return error.response.data;
+      }
+   return(error.message)
+}
+
+}
                         
 
- return {FetchAllProduct,FetchProductById,AddCart,Cart}
+ return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct}
 
 }
 export default UseEcommerceApi

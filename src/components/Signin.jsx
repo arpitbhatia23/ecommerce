@@ -29,7 +29,9 @@ function Signin() {
       
             }
             if (userdata.data.role==="ADMIN") {
+
               navigate("/admin")
+
             }
            })
            
@@ -38,7 +40,7 @@ function Signin() {
         toast.error(session?.message)
       }
     } catch (error) {
-      const errorMessage = error.response?.data?.message || error.message || 'An error occurred';
+      const errorMessage = error.response?.data?.message || error.message ||  'An error occurred';
       toast.error(errorMessage);
      
     }
@@ -91,7 +93,7 @@ function Signin() {
                 required: true,
               })}
             />
-             {errors.password && <p className='text-red-500'>password is required</p>}
+             {errors.password && <p className='text-red-500'> password is required </p>}
             <Button type='submit' className='w-full'>
               Sign in
             </Button>
