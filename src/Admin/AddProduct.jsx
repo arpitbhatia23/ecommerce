@@ -1,5 +1,6 @@
 import React from 'react'
 import Input from '../components/Input'
+import Button from '../components/Button'
 
 const AddProduct = () => {
   return (
@@ -19,6 +20,7 @@ const AddProduct = () => {
         </div>
         <label >discription</label>
         <textarea className='w-full h-40 p-2 border border-black/10 rounded-md'/>
+        <Button className='w-full'>Submit</Button>
       </form>
       </div>
     </div>
