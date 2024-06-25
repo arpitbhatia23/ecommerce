@@ -49,10 +49,33 @@ try {
                       }
                    return(error.message)
                 }
-                
-                
-                
+            }
+                const FetchProductById=async(id)=>{
+
+                    try {
+      
+                        const response= await axios.get(`/v1/ecommerce/products${id}`,
+                            {
+                                headers:{
+                                    'accept': 'application/json',
+                                }
+                            }
+                        )
+                        return await response.data
+                    
+                    
+                    } catch (error) {
+                        if (error.response) {
+                            return error.response.data;
+                          }
+                       return(error.message)
                     }
+
+
+
+                }
+                
+                    
 
                     const  Cart=async()=>{
                         try {
@@ -76,7 +99,7 @@ try {
                         
                         
                         
-                            }
+         }
 const createProduct=(data)=>{
 
 try {
