@@ -19,6 +19,7 @@ import AddProduct from './Admin/AddProduct.jsx'
 import Dashboard from './Admin/dashboard/Dashboard.jsx'
 import ChangePassword from './components/ChangePassword.jsx'
 import Products from './components/Products.jsx'
+import AdminProduct from './Admin/AdminProduct.jsx'
 const router=createBrowserRouter([
   {
     path:"/admin",
@@ -31,6 +32,10 @@ const router=createBrowserRouter([
       {
         path:"/admin/updateAdminProfile",
         element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
+      },
+      {
+        path:"/admin/AdminProduct",
+        element:(<Authlayout Authentication><AdminProduct/></Authlayout>)
       },
       {
         path:"/admin/addproduct",
