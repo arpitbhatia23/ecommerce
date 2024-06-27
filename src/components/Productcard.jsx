@@ -18,7 +18,7 @@ description,
       <Link to={`/product/${_id}`}>
         <div className="  mx-auto  max-w-md flex items-center flex-col  bg-gray-100 rounded-xl ">
           <div className=" w-5/6  py-2 flex justify-center items-center mb-4">
-            <img src={mainImage.url}  alt={name} className="rounded-xl " />
+            <img src={mainImage.url}  alt={name} className="rounded-xl h-[250px] w-4/6 " />
           </div>
 
           <h2 className="text-md  font-bold">{name} </h2>

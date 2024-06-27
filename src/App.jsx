@@ -12,6 +12,7 @@ function App() {
   const{currentuser}=useAuth()
   const navigate=useNavigate()
   const dispatch=useDispatch()
+  
   useEffect(()=>{
     
      currentuser()

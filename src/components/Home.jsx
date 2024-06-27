@@ -26,7 +26,7 @@ function Home() {
 
   return (
     <>
-    <div className='py-3  px-6 grid grid-cols-6'>
+    <div className='py-3  px-6 grid grid-cols-6 gap-4'>
       {post.length > 0
         ? post.map((products) => (
             <Productcard key={products._id} {...products} />

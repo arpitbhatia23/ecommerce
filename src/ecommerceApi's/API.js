@@ -77,6 +77,7 @@ try {
                 
                     
 
+
                     const  Cart=async()=>{
                         try {
                               
@@ -100,19 +101,21 @@ try {
                         
                         
          }
-const createProduct=(data)=>{
+const createProduct= async(data)=>{
 
-try {
+try { 
     
-    const response=axios.post("/v1/ecommerce/products/",{data},{
+    
+    const response= await axios.post("/v1/ecommerce/products/",data,{
              headers:{
                 'accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
         }
     }
     
 
     )
-    return response.data
+    return await response.data
 } catch (error) {
     if (error.response) {
         return error.response.data;

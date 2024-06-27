@@ -9,6 +9,7 @@ const TotalSale = () => {
   <div><FaBagShopping/></div> 
     :  TotalSale
    </div>
+   
 
     </div> 
     </div>

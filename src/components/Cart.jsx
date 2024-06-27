@@ -20,7 +20,7 @@ console.log(products)
 
   return (
     <>
-    <div className='grid grid-cols-6 px-4 py-4'>
+    <div className='grid grid-cols-6 px-4 py-4 gap-4'>
        {products && products.length > 0 ? (
         products.map((product) => (
           <Productcard key={product._id} {...product} />
