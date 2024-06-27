@@ -22,7 +22,7 @@ const Sidenav = () => {
           id:"3",
           name:"Add Product ",
           icon:<MdAddToPhotos size={25}/>,
-          slug:"/admin/AdminProduct"
+          slug:"/admin/addproduct"
         },
         // {
         //   id:"3",
