@@ -34,7 +34,7 @@ const router=createBrowserRouter([
         element:(<Authlayout Authentication ><Updateprofile/></Authlayout>)
       },
       {
-        path:"/admin/AdminProduct",
+        path:"/admin/Product",
         element:(<Authlayout Authentication><AdminProduct/></Authlayout>)
       },
       {

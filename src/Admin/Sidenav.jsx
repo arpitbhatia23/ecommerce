@@ -16,22 +16,23 @@ const Sidenav = () => {
           id:"2",
           name:"Product ",
           icon:<AiOutlineProduct size={25}/>,
+          slug:"/admin/product"
         },
         {
           id:"3",
           name:"Add Product ",
           icon:<MdAddToPhotos size={25}/>,
-          slug:"/admin/addproduct"
-        },
-        {
-          id:"4",
-          name:"Admin Product",
-          icon:<BsBoxSeam size={25}/>,
           slug:"/admin/AdminProduct"
         },
+        // {
+        //   id:"3",
+        //   name:"Admin Product",
+        //   icon:<BsBoxSeam size={25}/>,
+        //   slug:"/admin/AdminProduct"
+        // },
     
         {
-          id:"5",
+          id:"4",
           name:"Order ",
           icon:<BsBoxSeam size={25}/>
         },
