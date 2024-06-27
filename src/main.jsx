@@ -8,7 +8,7 @@ import Signin from './components/Signin.jsx'
 import Singup from "./components/Singup.jsx"
 import Order from "./components/Order.jsx"
 import Admin from "./Admin/Admin.jsx"
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider,createBrowserRouter} from 'react-router-dom'
 import Cart from './components/Cart.jsx'
 import { Provider } from 'react-redux'
 import store from './App/store.js'
