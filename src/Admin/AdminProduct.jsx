@@ -40,6 +40,12 @@ function AdminProduct() {
 
   })
 
+}
+const handelUpdate=(data)=>{
+  console.log(data)
+  return(
+    <div>abv</div>
+  )
  }
 
   return (
@@ -63,7 +69,7 @@ function AdminProduct() {
                 <div>{products.description}</div>
                 <div>{products.createdAt}</div>
                 <div onClick={()=>handelDelete(products._id)}><MdDelete className="text-red-500" size={25}/></div>
-                <div> <MdEdit size={25}/></div>
+                <div onClick={()=>handelUpdate(products)}> <MdEdit size={25}/></div>
               </div>
             ))}
           </div>

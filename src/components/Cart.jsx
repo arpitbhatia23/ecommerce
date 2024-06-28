@@ -23,7 +23,8 @@ console.log(products)
     <div className='grid grid-cols-6 px-4 py-4 gap-4'>
        {products && products.length > 0 ? (
         products.map((product) => (
-          <Productcard key={product._id} {...product} />
+       
+          <Productcard key={product.id} {...product} />
         ))
       ) : (
         <p>No products in the cart.</p>

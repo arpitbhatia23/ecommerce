@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import { useForm } from 'react-hook-form';
 import UseEcommerceApi from '../ecommerceApi\'s/API';
 import toast from 'react-hot-toast';
+import Select from '../components/Select';
 
 const AddProduct = () => {
   const { createProduct } = UseEcommerceApi();
@@ -52,7 +53,7 @@ else(
               />
               {errors.stock && <span>Stock is required</span>}
             </div>
-            <Input label="category" className=""
+            <Select label="category" className=""
               {...register('category', { required: true })}
             />
             {errors.category && <span>Category is required</span>}

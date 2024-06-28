@@ -36,7 +36,7 @@ const Products = () => {
   return (
     <div className='flex justify-center py-12  gap-2 '>
        <div className='max-w-lg p-6 flex  flex-col items-center '>
-        <img  className="rounded-md shadow-md shadow-black"src={post?.data?.mainImage?.url} alt="" />
+        <img  className="rounded-md shadow-md shadow-black"src={post?.data?.mainImage.url} alt="image" />
         <div className=' flex gap-x-12 py-4'>
        <div className='flex shadow-md items-center shadow-black bg-red-500 px-6 py-2 rounded-lg  text-black text-xl font-bold' onClick={()=>addCart()}>
         <MdShoppingCart size={20}/> add to cart  </div> 

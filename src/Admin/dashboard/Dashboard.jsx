@@ -7,7 +7,7 @@ import AdminProduct from '../AdminProduct'
 const Dashboard = () => {
   return (
     <div className='flex  flex-col justify-center'>
-     <div className=' flex '><TotalSale/>
+     <div className=' flex'><TotalSale/>
       <Totalincome/></div> 
       <AdminProduct/>
     </div>

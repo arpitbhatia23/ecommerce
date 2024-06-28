@@ -172,9 +172,32 @@ const deleteProduct= async(id)=>{
         }
         
         }
+        const getCategory= async()=>{
+
+            try { 
+                
+                
+                const response= await axios.get(`/v1/ecommerce/categories?page=1&limit=5`,{
+                         headers:{
+                            'accept': 'application/json',
+                            'Content-Type': 'multipart/form-data',
+                    }
+                }
+                
+            
+                )
+                return await response.data
+            } catch (error) {
+                if (error.response) {
+                    return error.response.data;
+                  }
+               return(error.message)
+            }
+            
+            }
                         
 
- return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct,deleteProduct,updateProduct}
+ return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct,deleteProduct,updateProduct,getCategory}
 
 }
 export default UseEcommerceApi

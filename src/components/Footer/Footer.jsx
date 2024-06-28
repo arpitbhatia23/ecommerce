@@ -6,8 +6,8 @@ import { FaWhatsapp } from "react-icons/fa";
 
 function Footer() {
   return (
-    <>
-      <div className="footer bg-gray-400 grid sm:grid-cols-3 gap-2 relative text-center grid-cols-1 ">
+    <div className='  w-full'>
+      <div className="footer bottom-0 bg-gray-400 grid sm:grid-cols-3 gap-2 relative text-center grid-cols-1 ">
           
           <div className=' grid p-4'>
             <div className='flex text-center gap-2'><img src="" alt="logo" /> <span><h1>Company Name</h1></span></div>
@@ -53,7 +53,7 @@ function Footer() {
       </div>
       <div className='bg-lime-400 w-full text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa facilis cum totam, dolor repudiandae amet!</div>
 
-    </>
+    </div>
   )
 }
 
