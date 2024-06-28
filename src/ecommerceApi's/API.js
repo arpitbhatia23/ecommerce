@@ -1,5 +1,6 @@
-import { data } from "autoprefixer";
+
 import axios from "axios";
+import { Await } from "react-router-dom";
 
 const UseEcommerceApi=()=>{
 
@@ -55,7 +56,7 @@ try {
 
                     try {
       
-                        const response= await axios.get(`/v1/ecommerce/products${id}`,
+                        const response= await axios.get(`/v1/ecommerce/products/${id}`,
                             {
                                 headers:{
                                     'accept': 'application/json',

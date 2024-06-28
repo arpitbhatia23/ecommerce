@@ -11,7 +11,7 @@ description,
   price,
   ...props
 }) => {
- 
+ console.log(props)
   
   return (
     
@@ -23,6 +23,7 @@ description,
 
           <h2 className="text-md  font-bold">{name} </h2>
           <h2 className="text-sm  py-2">price : {price}/rs</h2>
+          <h2 className="text-sm  py-2">category : {description} </h2>
 
         </div>
       </Link>
