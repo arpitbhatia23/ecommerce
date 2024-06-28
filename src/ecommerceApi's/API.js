@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import axios from "axios";
 
 const UseEcommerceApi=()=>{
@@ -147,9 +148,32 @@ const deleteProduct= async(id)=>{
     }
     
     }
+    const updateProduct= async(data)=>{
+
+        try { 
+            
+            
+            const response= await axios.patch(`/v1/ecommerce/products/${data.id}`,data,{
+                     headers:{
+                        'accept': 'application/json',
+                        'Content-Type': 'multipart/form-data',
+                }
+            }
+            
+        
+            )
+            return await response.data
+        } catch (error) {
+            if (error.response) {
+                return error.response.data;
+              }
+           return(error.message)
+        }
+        
+        }
                         
 
- return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct,deleteProduct}
+ return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct,deleteProduct,updateProduct}
 
 }
 export default UseEcommerceApi

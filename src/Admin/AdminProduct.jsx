@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UseEcommerceApi from '../ecommerceApi\'s/API';
 import { MdDelete, MdEdit } from 'react-icons/md';
+import toast from 'react-hot-toast';
 
 function AdminProduct() {
   const [post, setPost] = useState([]);
@@ -28,6 +29,13 @@ function AdminProduct() {
   deleteProduct(id)
   .then((data)=>{
     console.log(data)
+    if(data.success===true) {
+      toast.success(data.message)
+      
+    }
+    else{
+      toast.error(data.message)
+    }
     setPost((prevPost) => prevPost.filter((product) => product._id !== id));
 
   })
