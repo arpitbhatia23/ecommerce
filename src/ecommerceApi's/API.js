@@ -124,9 +124,32 @@ try {
 }
 
 }
+const deleteProduct= async(id)=>{
+
+    try { 
+        
+        
+        const response= await axios.delete(`/v1/ecommerce/products/${id}`,{
+                 headers:{
+                    'accept': 'application/json',
+                    'Content-Type': 'multipart/form-data',
+            }
+        }
+        
+    
+        )
+        return await response.data
+    } catch (error) {
+        if (error.response) {
+            return error.response.data;
+          }
+       return(error.message)
+    }
+    
+    }
                         
 
- return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct}
+ return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct,deleteProduct}
 
 }
 export default UseEcommerceApi

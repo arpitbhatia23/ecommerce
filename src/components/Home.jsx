@@ -11,7 +11,8 @@ function Home() {
     FetchAllProduct()
       .then((userdata) => {
        
-        if (userdata && Array.isArray(userdata?.data?.products)) {
+        if (userdata && Array.isArray(userdata?.data?.products))
+           {
           setPost(userdata?.data?.products);
         } else {
           console.error('Unexpected response format:', userdata);
@@ -20,7 +21,8 @@ function Home() {
       })
       .catch((error) => {
         console.error('Error fetching products:', error);
-        setPost([]); // Ensure post is an array even if there is an error
+        setPost([]);
+ // Ensure post is an array even if there is an error
       });
   }, []);
 
