@@ -67,7 +67,7 @@ function AdminProduct() {
               </div>
             ))}
           </div>
-        ) : null}
+        ) : <div> no product</div>}
       </div>
     </>
   );
