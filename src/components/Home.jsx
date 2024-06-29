@@ -15,7 +15,7 @@ function Home() {
            {
           setPost(userdata?.data?.products);
         } else {
-          console.error('Unexpected response format:', userdata);
+          console.error('Unexpected response format:',userdata);
           setPost([]);
         }
       })
