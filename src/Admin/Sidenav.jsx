@@ -24,15 +24,15 @@ const Sidenav = () => {
           icon:<MdAddToPhotos size={25}/>,
           slug:"/admin/addproduct"
         },
-        // {
-        //   id:"3",
-        //   name:"Admin Product",
-        //   icon:<BsBoxSeam size={25}/>,
-        //   slug:"/admin/AdminProduct"
-        // },
-    
         {
           id:"4",
+          name:"category",
+          icon:<BsBoxSeam size={25}/>,
+          slug:"/admin/category"
+        },
+    
+        {
+          id:"5",
           name:"Order ",
           icon:<BsBoxSeam size={25}/>
         },

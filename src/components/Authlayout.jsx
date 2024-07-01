@@ -12,7 +12,7 @@ export default function Protected ({children,Authentication=true}) {
         navigate('/signin')
     }else if (!Authentication && authStatus !== Authentication ){
          if (userdata.role==="ADMIN") {
-            navigate("/admin")
+            navigate("/admin/dashboard")
             
          }
          if(userdata.role==="USER") {

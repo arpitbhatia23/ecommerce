@@ -24,7 +24,7 @@ function App() {
 
         }
         if (userData.data.role==="ADMIN") {
-          navigate("/admin")
+          navigate("/admin/dashboard")
         }
       }
       

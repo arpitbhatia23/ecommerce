@@ -15,7 +15,7 @@ const Select = forwardRef(({ label, className, ...props }, ref) => {
       .catch((error) => {
         console.error('Error fetching categories:', error);
       });
-  }, [getCategory]);
+  }, []);
 
   return (
     <div>

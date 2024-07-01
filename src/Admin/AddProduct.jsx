@@ -42,36 +42,38 @@ else(
             <Input label="name"
               {...register('name', { required: true })}
             />
-            {errors.name && <span>Name is required</span>}
+            {errors.name && <span className='text-red-500'>Name is required</span>}
             <div className='flex items-center gap-2 mt-2'>
               <Input label="price" className="w-20 h-12" type="number"
                 {...register('price', { required: true })}
               />
-              {errors.price && <span>Price is required</span>}
+              {errors.price && <span className='text-red-500'>Price is required</span>}
               <Input label="stock" className="w-20 h-12" type="number"
                 {...register('stock', { required: true })}
               />
-              {errors.stock && <span>Stock is required</span>}
+              {errors.stock && <span className='text-red-500'>Stock is required</span>}
             </div>
             <Select label="category" className=""
               {...register('category', { required: true })}
             />
-            {errors.category && <span>Category is required</span>}
+            {errors.category && <span className='text-red-500'>Category is required</span>}
             <div className='flex items-center gap-2 mt-2'>
               <Input label="mainImage" type="file" className=""
                 {...register('mainImage', { required: true })}
               />
-              {errors.mainImage && <span>Main Image is required</span>}
+             
               <Input label="subImages" type="file" className=""
                 {...register('subImages', )}
               />
-              {errors.subImage && <span>Sub Image is required</span>}
+             
             </div>
+            {errors.mainImage && <span className='text-red-500'>Main Image is required</span>}
+            <br/>
             <label>description</label>
             <textarea className='w-full h-40 p-2 border border-black/10 rounded-md'
               {...register('description', { required: true })}
             />
-            {errors.description && <span>Description is required</span>}
+            {errors.description && <span className='text-red-500'>Description is required</span>}
             <Button className='w-full' type='submit'>Submit</Button>
           </form>
         </div>

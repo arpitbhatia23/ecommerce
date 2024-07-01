@@ -20,6 +20,7 @@ import Dashboard from './Admin/dashboard/Dashboard.jsx'
 import ChangePassword from './components/ChangePassword.jsx'
 import Products from './components/Products.jsx'
 import AdminProduct from './Admin/AdminProduct.jsx'
+import Category from './Admin/Category.jsx'
 const router=createBrowserRouter([
   {
     path:"/admin",
@@ -48,6 +49,10 @@ const router=createBrowserRouter([
       {
         path:"/admin/changepassword",
         element:(<Authlayout Authentication ><ChangePassword/></Authlayout>)
+      },
+      {path:"/admin/category",
+        element:(<Authlayout Authentication><Category/></Authlayout>)
+
       }
 
     ]

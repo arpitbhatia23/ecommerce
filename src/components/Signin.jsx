@@ -30,7 +30,7 @@ function Signin() {
             }
             if (userdata.data.role==="ADMIN") {
 
-              navigate("/admin")
+              navigate("/admin/dashboard")
 
             }
            })
