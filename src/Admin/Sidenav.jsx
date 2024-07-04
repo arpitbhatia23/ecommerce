@@ -42,13 +42,13 @@ const Sidenav = () => {
       const navigate=useNavigate()
   return (
     <>
-    <nav className='absolute  min-h-screen  bg-slate-900  p-4 shadow-lg shadow-slate-900'>
-<div className='text-white float-right'>
+    <nav className='absolute  min-h-screen   p-4 '>
+<div className='text-black float-right'>
 </div>
 
     <ul className='  ml-auto flex flex-col items-start justify-center '>
             { sidenav.map((item)=>(
-                    <button key={item.id} className=' flex gap-x-2 items-center justify-center py-8 duration-200 text-white  rounded-full  hover:text-gray-400 active:text-gray-400 ' onClick={()=>navigate(item.slug)}>{item.icon}{item.name} </button>
+                    <button key={item.id} className=' flex gap-x-2 items-center justify-center py-8 duration-200 text-black  rounded-full  hover:text-gray-400 active:text-gray-400 ' onClick={()=>navigate(item.slug)}>{item.icon}{item.name} </button>
             )
           )
               
