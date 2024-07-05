@@ -4,7 +4,7 @@ import { Await } from "react-router-dom";
 
 const UseEcommerceApi=()=>{
 
-
+// fectch all product 
     const  FetchAllProduct=async()=>{
 try {
       
@@ -31,7 +31,7 @@ try {
 
     
     
-        
+        // add product to cart
             const  AddCart=async(id)=>{
                 try {
                       
@@ -52,6 +52,8 @@ try {
                    return(error.message)
                 }
             }
+
+            // fetch product by id
                 const FetchProductById=async(id)=>{
 
                     try {
@@ -76,7 +78,7 @@ try {
 
 
                 }
-                
+// get cart
                     const  Cart=async()=>{
                         try {
                               
@@ -101,6 +103,7 @@ try {
                         
          }
           
+     // remove cart     
          const  removeCart=async(id)=>{
             try {
                   
@@ -124,7 +127,7 @@ try {
             
             
 }
-
+// create product 
 const createProduct= async(data)=>{
 
 try { 
@@ -148,6 +151,7 @@ try {
 }
 
 }
+// deleteproduct 
 const deleteProduct= async(id)=>{
 
     try { 
@@ -171,6 +175,7 @@ const deleteProduct= async(id)=>{
     }
     
     }
+    // update product 
     const updateProduct= async(data)=>{
 
         try { 
@@ -194,6 +199,7 @@ const deleteProduct= async(id)=>{
         }
         
         }
+        // getCategory
         const getCategory= async()=>{
 
             try { 
@@ -217,7 +223,7 @@ const deleteProduct= async(id)=>{
             }
             
             }
-            
+  // create category           
             const createCategory= async(data)=>{
 
                 try { 
@@ -241,6 +247,7 @@ const deleteProduct= async(id)=>{
                 }
                 
                 }
+   // delete category              
                 const deleteCategory= async(id)=>{
 
                     try { 
@@ -264,7 +271,7 @@ const deleteProduct= async(id)=>{
                     }
                     
                     }
-                        
+       // update category                  
                     const updateCategory= async(id)=>{
 
                         try { 
