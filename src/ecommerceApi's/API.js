@@ -77,9 +77,6 @@ try {
 
                 }
                 
-                    
-
-
                     const  Cart=async()=>{
                         try {
                               
@@ -103,6 +100,31 @@ try {
                         
                         
          }
+          
+         const  removeCart=async(id)=>{
+            try {
+                  
+                const response= await axios.delete(`/v1/ecommerce/cart/item/${id}`,
+                    {
+                        headers:{
+                            'accept': 'application/json',
+                        }
+                    }
+                )
+                return await response.data
+            
+            
+            } catch (error) {
+                if (error.response) {
+                    return error.response.data;
+                  }
+               return(error.message)
+            }
+            
+            
+            
+}
+
 const createProduct= async(data)=>{
 
 try { 
@@ -268,7 +290,19 @@ const deleteProduct= async(id)=>{
                         }
                             
 
- return {FetchAllProduct,FetchProductById,AddCart,Cart,createProduct,deleteProduct,updateProduct,getCategory,createCategory,updateCategory,deleteCategory}
+ return {
+    FetchAllProduct,
+    FetchProductById,
+    AddCart,
+    Cart,
+    createProduct,
+    deleteProduct,
+    updateProduct,
+    getCategory,
+    createCategory,
+    updateCategory,
+    deleteCategory,
+    removeCart}
 
 }
 export default UseEcommerceApi
