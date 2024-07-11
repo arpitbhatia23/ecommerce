@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import UseEcommerceApi from '../ecommerceApi\'s/API';
 import Productcard from './Productcard';
+import Loading from './Loading';
 
 function Home() {
   const [post, setPost] = useState([]);
-
   useEffect(() => {
     const { FetchAllProduct } = UseEcommerceApi();
     FetchAllProduct()
@@ -19,6 +19,7 @@ function Home() {
           setPost([]);
         }
       })
+     
       .catch((error) => {
         console.error('Error fetching products:', error);
         setPost([]);

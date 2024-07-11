@@ -30,7 +30,13 @@ const handelDelete=(id)=>{
 }
 
   return (
-    <>
+    <>     
+     <div className=' shadow-sm shadow-black py-4  px-4'> 
+    <div  className='flex justify-end items-center '>  
+      <MdOutlineRemoveShoppingCart size={25}/><button>clear cart</button> 
+    </div>
+      </div>
+
     <div className='grid grid-cols-6 px-4 py-4 gap-4'>
        {products && products.length > 0 ? (
         products.map((product) => (

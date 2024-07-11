@@ -1,13 +1,12 @@
 
 import axios from "axios";
-import { Await } from "react-router-dom";
-
+import { useState } from "react";
 const UseEcommerceApi=()=>{
 
 // fectch all product 
     const  FetchAllProduct=async()=>{
 try {
-      
+ 
     const response= await axios.get("/v1/ecommerce/products?page=1&limit=10",
         {
             headers:{
@@ -15,10 +14,11 @@ try {
             }
         }
     )
+    
     return await response.data
 
 
-} catch (error) {
+} catch (error) { 
     if (error.response) {
         return error.response.data;
       }
@@ -33,7 +33,7 @@ try {
     
         // add product to cart
             const  AddCart=async(id)=>{
-                try {
+                try {  
                       
                     const response= await axios.post(`/v1/ecommerce/cart/item/${id}`,
                         {
@@ -41,7 +41,8 @@ try {
                                 'accept': 'application/json',
                             }
                         }
-                    )
+                    )  
+                   
                     return await response.data
                 
                 
@@ -57,7 +58,7 @@ try {
                 const FetchProductById=async(id)=>{
 
                     try {
-      
+                
                         const response= await axios.get(`/v1/ecommerce/products/${id}`,
                             {
                                 headers:{
@@ -65,6 +66,7 @@ try {
                                 }
                             }
                         )
+                     
                         return await response.data
                     
                     
@@ -123,6 +125,7 @@ try {
                   }
                return(error.message)
             }
+            
             
             
             
