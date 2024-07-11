@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
     const profile=async()=>{
         try { 
-            const response= await axios.get("http://localhost:8080/api/v1/ecommerce/profile",{
+            const response= await axios.get("/v1/ecommerce/profile",{
                 headers:{
                 'accept': 'application/json',
 
@@ -23,7 +23,7 @@ import toast from "react-hot-toast";
     }
     const updateProfile=async(user)=>{
         try { 
-            const response= await axios.patch("http://localhost:8080/api/v1/ecommerce/profile",user,{
+            const response= await axios.patch("/v1/ecommerce/profile",user,{
                 headers:{
                 'accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ import toast from "react-hot-toast";
             const formData = new FormData();
             formData.set('avatar', avatarFile);
 
-            const response= await axios.patch("http://localhost:8080/api/v1/users/avatar",formData,{
+            const response= await axios.patch("/v1/users/avatar",formData,{
                 headers:{
                 'accept': 'application/json',
                 'Content-Type': 'multipart/form-data'      
