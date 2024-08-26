@@ -25,7 +25,19 @@ function AdminProduct() {
 
   console.log(post);
  const  handelDelete=(id)=>{
-  const {deleteProduct}=UseEcommerceApi()
+  const {deleteProduct,removeCart}=UseEcommerceApi()
+  removeCart(id)
+  .then((data)=>{
+    console.log(data)
+    if(data.success===true) {
+      toast.success(data.message)
+      
+    }
+    else{
+      toast.error(data.message)
+    }
+
+  })
   deleteProduct(id)
   .then((data)=>{
     console.log(data)
@@ -65,9 +77,9 @@ const handelUpdate=(data)=>{
             {post.map((products) => (
               <div key={products._id} className="grid grid-cols-6 gap-4 py-2 border-b">
                 <div><img src={products.mainImage.url} className="w-12 h-12" alt="product" /></div>
-                <div>{products.name}</div>
-                <div>{products.description}</div>
-                <div>{products.createdAt}</div>
+                <p>{products.name}</p>
+                <p>{products.description}</p>
+                <p>{products.createdAt}</p>
                 <div onClick={()=>handelDelete(products._id)}><MdDelete className="text-red-500" size={25}/></div>
                 <div onClick={()=>handelUpdate(products)}> <MdEdit size={25}/></div>
               </div>

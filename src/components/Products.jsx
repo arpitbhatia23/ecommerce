@@ -4,6 +4,8 @@ import UseEcommerceApi from '../ecommerceApi\'s/API'
 import { MdShoppingCart } from 'react-icons/md'
 import { RiFlashlightLine } from 'react-icons/ri'
 import toast from 'react-hot-toast'
+import { Carousel } from 'react-responsive-carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Products = () => {
     const {slug}=useParams()
@@ -36,8 +38,21 @@ const Products = () => {
   return (
     <div className='flex justify-center py-12  gap-2 '>
        <div className='max-w-md   p-6 flex  flex-col items-center '>
-        <div className='shadow-md shadow-black py-12 px-16'>
-        <img  className="rounded-sm shadow-md h-60 w-40 shadow-black"src={post?.data?.mainImage.url} alt="image" />
+        <div className='flex shadow-md shadow-black py-12 px-16'>
+        <Carousel showThumbs={false} thumbWidth={'400px'} showIndicators={true} showStatus={false}  >
+         <img src={post?.data?.mainImage.url} alt="" className="rounded-sm shadow-md h-[400px] shadow-black"/>
+            {
+          post?.data?.subImages?.map((items)=>(
+
+            <div  key={items._id} >
+            <img  className="rounded-sm shadow-md h-[400px] shadow-black"src={items.url} alt="image" />
+            </div>
+
+          ))
+
+        }
+                    </Carousel>
+
         </div>
         <div className=' flex gap-x-12 py-4'>
        <div className='flex shadow-md items-center shadow-black bg-red-500 px-6 py-2 rounded-lg  text-black text-xl font-bold' onClick={()=>addCart()}>

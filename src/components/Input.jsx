@@ -19,6 +19,7 @@ const Input = ({label,
              htmlFor={id}
              placeholder={placeholder}
              {...props}
+          
             />
       
     </div>
